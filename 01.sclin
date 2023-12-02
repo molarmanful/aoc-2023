@@ -1,7 +1,14 @@
+.. Part 1
+"input"@# n<> \; map +/
+  "\D"<> flat () fltr [0 1_ ] : c><
+
+
+.. Part 2
 ["one" 1, "two" 2, "three" 3, "four" 4, "five" 5, "six" 6, "seven" 7, "eight" 8, "nine" 9, ]: =$a.
 "input"@# n<> \; map +/
   ["(?=(" $a >k "|">< "|\d))"]S /?* [0 1_ ] :.
   ( 0:"&": dup $a swap : \pop ||# ) map c><
+
 
 #input ``
 ninefourone1
