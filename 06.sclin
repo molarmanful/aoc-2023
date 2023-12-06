@@ -1,0 +1,18 @@
+..
+.. Part 1
+..
+"input"@# n<>" +"<> tpose 1dp N.
+\; map */
+  ,_ \; dip .> fltr len
+    dup O-a \- Q \* zip
+
+
+..
+.. Part 2
+..
+"input"@# n<>"\D+"""\ /# N ,_ ( t d )=.
+$t $t dup * $d4* - .5^ \+ \- , Q 2/.
+\|_ \|^ , \Q zip ,_ - 1+
+
+
+#input ``

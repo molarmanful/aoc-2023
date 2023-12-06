@@ -1,0 +1,45 @@
+..
+.. Part 1
+..
+( rfind )#.
+"input"@# "\n\n"<> n<> "[^\d ]"""\ /# w<> ( ().fltr map () fltr ) map N +<.
+\,_ dip.
+( swap rfind )+ map &/
+
+
+..
+.. Part 2
+..
+( rfind )#.
+"input"@# "\n\n"<> n<> "[^\d ]"""\ /# w<> ( ().fltr map () fltr ) map N +<.
+( ,_ 2/` ) dip ( ss rs )=.
+$ss 1.: map |/ 100/ logX |^ 1swap E I =$k.
+.
+$ss ( ,_ ( x l )=. ) mapf =$ms ;>
+  $W $k * $l.< tk* $x + ( =$y. ) map
+    [ $x $x $l + $y ] $rs $y rfind ,
+.
+$ms 1.: sort 0: ,_ =$f ,_ ( a b e )=.
+.
+$e $f $k.
+=$k $k 1> (( $e $f )= ; @ ) &#
+  $e $k - $a | =$aa.
+  $e $k + $b & =$bb.
+  $k 10/~ =$k.
+  $W $k * $aa + $bb.< tk*.
+  ( $rs over rfind , ) map.
+  1.: sort 0: ,_.
+  $k
+
+
+..
+.. Util
+..
+
+#rfind.
+  ( swap =$x. ) fold
+    ( ,_ ( d s n )= $s $x <= $x $s $n + < & ) find.
+    dup ( ,_ ( d s n )= $x $s - $d + ) \$x ?#
+
+
+#input ``
