@@ -1,0 +1,26 @@
+..
+.. Part 1
+..
+"input"@# n<> w<>.
+\;.' map ;>
+  \; dip
+    ( "23456789TJQKA" swap.= find: ) map.
+    dup \; dip ,
+      () group >v \len map \_ sort
+0.: sort 1.: map $N \* zip +/
+
+
+..
+.. Part 2
+..
+"input"@# n<> w<>.
+\;.' map ;>
+  \; dip
+    ( "J23456789TQKA" swap.= find: ) map.
+    dup \; dip ,
+      dup () fltr () group \len sort >v 1_ : 0:.
+      .||# map () group >v \len map \_ sort
+0.: sort 1.: map $N \* zip +/
+
+
+#input ``
