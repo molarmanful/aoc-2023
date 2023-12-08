@@ -1,0 +1,29 @@
+..
+.. Part 1
+..
+"input"@# "\n+"<> +< "[\w]+"/?& ( +< >A , ) map >M.
+( "R".= map N cyc ) dip ( ds ks )=.
+"AAA"=$k.
+0=$n.
+$k "ZZZ"= \$n ( ; +$ @ ) ?#
+  $ks $k : $ds +< =$ds : =$k.
+  $n1+ =$n.
+  $
+
+
+..
+.. Part 2
+..
+"input"@# "\n+"<> +< "[\w]+"/?& ( +< >A , ) map >M.
+( "R".= map N cyc ) dip ( ds ks )=.
+$ks >k ( 1_ : "A"= ) fltr.
+( =$k ; ) map ;>
+  0=$n.
+  $k 1_ : "Z"= \$n ( ; +$ @ ) ?#
+    $ks $k : $ds +< =$ds : =$k.
+    $n1+ =$n.
+    $
+P/ \>A mapf 0.: group ( 1.: map |/ ) map 1 ( * * ) fold
+
+
+#input ``
