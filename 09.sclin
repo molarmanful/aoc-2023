@@ -1,0 +1,27 @@
+..
+.. Part 1
+..
+"input"@# n<> w<>.
+\; map +/
+  ; ;>
+    dup () uniq len 1= ( ; @ ) |#
+      dup \- 2%map _
+  ; 1_ :
+    dups len 1> ( ; @ ) &#
+      1_ : ( ddup + )+ ' 
+
+
+..
+.. Part 2
+..
+"input"@# n<> w<>.
+\; map +/
+  ; ;>
+    dup () uniq len 1= ( ; @ ) |#
+      dup \- 2%map _
+  ; 0:
+    dups len 1> ( ; @ ) &#
+      0: (( rev dup ) dip - rev )+ ' 
+
+
+#input ``
