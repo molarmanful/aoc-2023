@@ -1,0 +1,54 @@
+..
+.. Part 1
+..
+"input"@# n<> c<>.
+>kv ( ,_ =>kv swap ( rot_ \, dip )+ map ) mapf >M =$boardm.
+[.
+  "|" [[1 0][1_ 0]] ,.
+  "-" [[0 1][0 1_ ]] ,.
+  "F" [[0 1][1 0]] ,.
+  "L" [[0 1][1_ 0]] ,.
+  "J" [[0 1_ ][1_ 0]] ,.
+  "7" [[0 1_ ][1 0]] ,.
+]: =$dirs.
+[1 0] =$dir.
+$boardm "S".= find 0: $dir + =$pos.
+1=$n.
+$.
++$ $boardm $pos :` dup >o dup"S"= ( $n 2/ ) ( ; @ ) ?#
+  $dirs swap : ( $dir _ !=` ) find =$dir.
+  $pos $dir + =$pos.
+  $n 1+ =$n.
+  $
+
+
+..
+.. Part 2
+..
+"input"@# n<> c<> =$board.
+$board >kv ( ,_ =>kv swap ( rot_ \, dip )+ map ) mapf >M =$boardm.
+[.
+  "|" [[1 0][1_ 0]] ,.
+  "-" [[0 1][0 1_ ]] ,.
+  "F" [[0 1][1 0]] ,.
+  "L" [[0 1][1_ 0]] ,.
+  "J" [[0 1_ ][1_ 0]] ,.
+  "7" [[0 1_ ][1 0]] ,.
+]: =$dirs.
+[1 0] =$dir.
+$boardm "S".= find 0: $dir + =$pos.
+[ $pos 1, ]: =$loop.
+$ ; =$loop ;>
+  +$ $boardm $pos :` dup >o dup"S"= \$loop ( ; @ ) ?#
+    $dirs swap : ( $dir _ !=` ) find =$dir.
+    $pos $dir + =$pos.
+    $loop 1 $pos := =$loop.
+    $
+$board >kv ( ,_ swap =$i =>kv $F 0, (( j pn x )= $pn ,_ ( p n )=. ) fold 1: ) map +/
+  $loop $i $j , :?` \; \;> ?# +$ $p $n ,
+    $p "|JL" $x.= any \! &# =$p $
+  .
+    $n $p + =$n $
+
+
+#input ``
