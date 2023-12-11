@@ -1,0 +1,39 @@
+..
+.. Part 2
+..
+( empties galaxies expandi dists )#.
+"input"@# n<> c<> "#".= map.
+empties =$es.
+galaxies $es expandi dists 0D \+ fold N
+
+
+..
+.. Part 1
+..
+( expand galaxies dists )#.
+"input"@# n<> c<> "#".= map.
+expand galaxies dists +/
+
+
+.. Util
+
+#expand.
+  ( ; tpose ) 2*#
+    ( dup () any \,, ( dup , ) ?# ) mapf
+
+#galaxies.
+  >kv ( ,_ swap =$i =>kv (( $i swap , ) dip ) map ) mapf >M.
+  () fltr >k
+
+#dists.
+  2comb ( ,_ - abs ,_ + ) map
+
+#empties.
+  [ \; ( tpose. ) ] Q
+    >kv ( ,_ () any \pop &# ) mapf.
+
+#expandi =$es.
+  \; map
+    $es over ( .< tk* len dup 6E swap - ) zip +
+
+#input ``
