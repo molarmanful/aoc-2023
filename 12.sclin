@@ -1,0 +1,31 @@
+..
+.. Part 1
+..
+"input"@# n<> w<> ( ","<> N ).' map.
+( ,_ ( s xs )=. ).~Q map ~// ~_ +/
+  ".#" $s "?".= fltr len ^` \; map ;>
+    $s ( "\?"swap /#^ ) fold.
+    \= pack ( 0: "#"= ) fltr \len map
+  $xs dups f>o .=` fltr len
+
+
+..
+.. Part 2
+..
+( f )#.
+"input"@# n<> w<> (( ,,5*`"?">< ) dip ","<> N 5*` ).' map.
+[]: =$$cache.
+( \len.Q.dip ' f ).~Q map ~// ~_ +/
+
+#f dup f>o =$args.
+  $$cache $args :?` ( $$cache $args :` ) \; ?#
+    $args ,_ ( s n xs )= ; $$cache over $args := =$$cache
+      $xs !` ( $s ( ".?"swap :? ) all ) \; ?#
+        $xs +< ( h t )= $t +/ $t len + =$b.
+        $n $b - $h - 1+ O>a ( =$a. ) map +/
+          [ "." $a ** "#" $h ** "." ]S =$c.
+          $s $c ( over = swap "?"= | ) zip () all \; 0 ?#
+            [ $s $c len dp $n $a - $h - 1- $t ] f
+
+
+#input ``
