@@ -1,0 +1,31 @@
+..
+.. Part 1
+..
+"input"@#"\n\n"<> n<> c<>.
+( dup ; 100* swap tpose ; + ) map +/
+  =$x.
+  $x len =$l.
+  $l I>a ( =$a. ) map +/
+    $l $a - $a & =$b.
+    $x $a dp $b tk.
+    $x $a tk $a $b - dp _`.
+    =` $a 0 ?#
+
+
+..
+.. Part 2
+..
+"input"@#"\n\n"<> n<> c<>.
+( dup ; 100* swap tpose ; + ) map +/
+  =$x.
+  $x len =$l.
+  $l I>a ( =$a. ) map +/
+    $l $a - $a & =$b.
+    [ $a $b ] f>o.
+    $x $a dp $b tk.
+    $x $a tk $a $b - dp _`.
+    = +/ $b $x0: len * 1- = $a 0 ?#.
+    ""n>o.
+
+
+#input ``
