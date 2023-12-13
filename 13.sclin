@@ -21,7 +21,6 @@
   $x len =$l.
   $l I>a ( =$a. ) map +/
     $l $a - $a & =$b.
-    [ $a $b ] f>o.
     $x $a dp $b tk.
     $x $a tk $a $b - dp _`.
     = +/ $b $x0: len * 1- = $a 0 ?#.
