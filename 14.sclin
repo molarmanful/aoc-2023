@@ -14,13 +14,13 @@ $g (( i g c )=. ) fold ;>
 .. Part 2
 ..
 "input"@# n<> c<>.
-( =$g ; tpose \_` map ) ;>
+( =$g ; tpose \_` map ) itr ;>
   $g >kv ( ,_ >kv swap ( swap ,_ \, dip , )+ map ) mapf >M "O".= fltr.
   $g (( i g c )=. ) fold
     $i 1 0, - =$ii.
     $i0: $g $ii :/ "."= & ( ; $ii ( g i )= ;; ) \$g ?#
       $g "." $i :/= "O" $ii :/=
-itr 4/` 0.:` map.
+4/` 0.:` map.
 []: =$$u.
 dup >kv ( ,_ ( i x )=. ) find 1: ;>
   $$u $x :?` dup ( $$u $i $x := =$$u ) |#
