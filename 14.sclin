@@ -1,32 +1,38 @@
 ..
 .. Part 1
 ..
-"input"@# n<> c<> =$g.
-$g >kv ( ,_ >kv swap ( swap ,_ \, dip , )+ map ) mapf >M "O".= fltr.
-$g (( i g c )=. ) fold ;>
-  $i 1 0, - =$ii.
-  $i0: $g $ii :/ "."= & ( ; $ii ( g i )= ;; ) \$g ?#
-    $g "." $i :/= "O" $ii :/=
-( "O".= fltr len ) map dup len a-I \* zip +/
+( tilt weight )#.
+"input"@# n<> c<>.
+tilt weight
 
 
 ..
 .. Part 2
 ..
+( tilt findcyc weight )#.
 "input"@# n<> c<>.
-( =$g ; tpose \_` map ) itr ;>
+( tilt tpose \_` map ) itr 4/` 0.:` map >kv.
+[]: findcyc +$.
+$u $x :` $i ( a b )=.
+$xs 1 9E $a - $b $a - % 1- :` 1:.
+weight
+
+
+.. Util
+
+#tilt =$g.
   $g >kv ( ,_ >kv swap ( swap ,_ \, dip , )+ map ) mapf >M "O".= fltr.
-  $g (( i g c )=. ) fold
+  $g (( i g c )=. ) fold ;>
     $i 1 0, - =$ii.
     $i0: $g $ii :/ "."= & ( ; $ii ( g i )= ;; ) \$g ?#
       $g "." $i :/= "O" $ii :/=
-4/` 0.:` map.
-[]: =$$u.
-dup >kv ( ,_ ( i x )=. ) find 1: ;>
-  $$u $x :?` dup ( $$u $i $x := =$$u ) |#
-$$u swap :` $$u len ( a b )=.
-$b dp 1 9E $a - $b $a - % :`.
-( "O".= fltr len ) map dup len a-I \* zip +/
+
+#findcyc =$u.
+  +< =$xs ,_ ( i x )=.
+  $u $x :?` \$ ( $xs $u $i $x := findcyc ) ?#
+
+#weight.
+  ( "O".= fltr len ) map dup len a-I \* zip +/
 
 
 #input ``
