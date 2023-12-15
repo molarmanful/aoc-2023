@@ -1,0 +1,24 @@
+..
+.. Part 1
+..
+"input"@# ","<>.
+S>c ( 0 ( +17*256% ) fold ) map +/
+
+
+..
+.. Part 2
+..
+"input"@# ","<> "-|="<>.
+256O>a []:., map >M.
+(( g x )=. ) fold ;>
+  $x0: $x1: ( a b )=.
+  $a S>c 0 ( +17*256% ) fold dup =$h.
+  [.
+    $b \ ( $g $b $h $a , :/= ) ,.
+    1 ( $g $a.-` map ) ,.
+  ]: ??#
+() fltr >A ( ,_ ( k v )=. ) map +/
+  $v >v >kv ( ,_ swap 1+ * ) map $k1+ *
+
+
+#input ``
