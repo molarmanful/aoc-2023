@@ -1,18 +1,18 @@
 ..
+.. Part 1
+..
+( expand galaxies dists )#.
+"input"@# n<> c<> "#".= map.
+expand galaxies dists +/
+
+
+..
 .. Part 2
 ..
 ( empties galaxies expandi dists )#.
 "input"@# n<> c<> "#".= map.
 empties =$es.
 galaxies $es expandi dists 0D \+ fold N
-
-
-..
-.. Part 1
-..
-( expand galaxies dists )#.
-"input"@# n<> c<> "#".= map.
-expand galaxies dists +/
 
 
 .. Util
