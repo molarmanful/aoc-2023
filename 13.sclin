@@ -24,7 +24,6 @@
     $x $a dp $b tk.
     $x $a tk $a $b - dp _`.
     = +/ $b $x0: len * 1- = $a 0 ?#.
-    ""n>o.
 
 
 #input ``
