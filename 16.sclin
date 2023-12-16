@@ -16,7 +16,7 @@
   swap ( $grid len , 0 1_ , , ) map.
   $grid0: >k dup ( 1_ swap , 1 0, , ) map.
   swap ( $grid0: len swap , 1_ 0, , ) map.
-] flat \solve.~Q map ~|| ~_ |/
+] flat \solve.~Q map ~// ~_ |/
 
 
 .. Util
