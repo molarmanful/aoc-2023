@@ -1,0 +1,59 @@
+..
+.. Part 1
+..
+( solve )#.
+"input"@# n<> c<> =$grid.
+0 1_ , 0 1, , solve
+
+
+..
+.. Part 2
+..
+( solve )#.
+"input"@# n<> c<> =$grid.
+[.
+  $grid >k dup ( 1_ , 0 1, , ) map.
+  swap ( $grid len , 0 1_ , , ) map.
+  $grid0: >k dup ( 1_ swap , 1 0, , ) map.
+  swap ( $grid0: len swap , 1_ 0, , ) map.
+] flat \solve.~Q map ~|| ~_ |/
+
+
+.. Util
+
+#solve.
+  ,, =$beams.
+  []: =$ener.
+  $beams len ( ; +$ $beams () fltr =$beams @ ) \;> ?#
+    $beams =>kv $ ( swap +$ ,_ ( i pos dir )=. ) fold
+      $pos $dir + =$pos.
+      $pos $dir , =$pd.
+      $grid $pos :/ =$c.
+      [ $ener $pd :` $pos 0.< any $c !` ] |/ \; \;> ?#
+        $beams UN $i := =$beams $
+      .
+        $ener 1 $pd := =$ener.
+        [.
+          ( $c"|"= $dir1: & $c"-"= $dir0: & | ) \; ;>
+            $dir _` =$dir.
+            $beams.
+            $pos $dir , $i :=.
+            $pos $dir _ , +>.
+            =$beams $
+          1 \; ;>
+            $beams.
+            $pos ; , $i := ;>
+              $dir [.
+                "/" ( _` _ ).
+                "\\" \_`.
+              ]; $c : #
+            =$beams $
+        ]; ??#
+  $ener 0.:.dip map len dup f>o
+
+#dbg +$.
+  $ener $grid ( rot 0: :/= ) fold.
+  \>S map n>< n>o
+
+
+#input ``
