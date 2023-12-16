@@ -22,34 +22,33 @@
 .. Util
 
 #solve.
+  ( step )#.
   ,, =$beams.
   []: =$ener.
-  $beams len ( ; +$ $beams () fltr =$beams @ ) \;> ?#
-    $beams =>kv $ ( swap +$ ,_ ( i pos dir )=. ) fold
-      $pos $dir + =$pos.
-      $pos $dir , =$pd.
-      $grid $pos :/ =$c.
-      [ $ener $pd :` $pos 0.< any $c !` ] |/ \; \;> ?#
-        $beams UN $i := =$beams $
-      .
-        $ener 1 $pd := =$ener.
-        [.
-          ( $c"|"= $dir1: & $c"-"= $dir0: & | ) \; ;>
-            $dir _` =$dir.
-            $beams.
-            $pos $dir , $i :=.
-            $pos $dir _ , +>.
-            =$beams $
-          1 \; ;>
-            $beams.
-            $pos ; , $i := ;>
-              $dir [.
-                "/" ( _` _ ).
-                "\\" \_`.
-              ]; $c : #
-            =$beams $
-        ]; ??#
+  $beams len ( $ step +$ $beams () fltr =$beams @ ) \; ?#
   $ener 0.:.dip map len dup f>o
+
+#step +$.
+  $beams =>kv $ ( swap +$ ,_ ( i pos dir )=. ) fold
+    $pos $dir + =$pos.
+    $pos $dir , =$pd.
+    $grid $pos :/ =$c.
+    [ $ener $pd :` $pos 0.< any $c !` ] |/ \; \;> ?#
+      $beams UN $i := =$beams $
+    .
+      $ener 1 $pd := =$ener.
+      $beams ; =$beams $
+        $c"|"= $dir1: & $c"-"= $dir0: & | \; \;> ?#
+          $dir _` =$dir.
+          $beams.
+          $pos $dir , $i :=.
+          $pos $dir _ , +>
+        .
+          $pos ; , $i :=
+            $dir [.
+              "/" ( _` _ ).
+              "\\" \_`.
+            ]; $c : #
 
 #dbg +$.
   $ener $grid ( rot 0: :/= ) fold.
