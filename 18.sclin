@@ -1,0 +1,25 @@
+..
+.. Part 1
+..
+"input"@# n<> w<>.
+dup 1.: map +/ =$b.
+[ "R" 1 0, "D" 0 1_ , "L" 1_ 0, "U" 0 1, ]; =$dirs.
+( ,_ ( dir n $ )= $dirs $dir : $n * ) map.
+0 0, \+ scan 1dp ( _` * ,_ - ) 2%map +/ abs $b + 2/1+
+
+
+..
+.. Part 2
+..
+"input"@# n<> w<> 1_.: map.
+[ 1 0, 0 1_ , 1_ 0, 0 1, ] =$dirs.
+\; map =$xs ;>
+  "\W"""\ /# >+.
+  (( "0123456789abcdef"swap.= find: ) map 16b>X ) dip.
+  $dirs swap : ,
+$xs 0.: map +/ =$b.
+$xs ( ,_ * ) map.
+0 0, \+ scan 1dp ( _` * ,_ - ) 2%map +/ abs $b + 2/1+
+
+
+#input ``
